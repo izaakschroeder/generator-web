@@ -12,3 +12,8 @@ yo web
 ```
 
 ## Structure
+
+ * Polymer components
+ * AssetKit
+
+
