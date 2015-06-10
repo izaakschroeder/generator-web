@@ -1,19 +1,10 @@
-# generator-api
+# generator-web
 
-Build HTTP API-based websites.
+Build awesome frontends.
 
 ## Usage
 
 ```sh
-git clone generator-web
-npm link generator-web
-npm install -g yeoman
-yo web
+npm install -g @metalab/generator-web
+yo @metalab/web
 ```
-
-## Structure
-
- * Polymer components
- * AssetKit
-
-
