@@ -6,6 +6,11 @@ module.exports = generators.Base.extend({
 		this.composeWith('@metalab/license');
 		this.composeWith('@metalab/editorconfig');
 		this.composeWith('@metalab/eslint');
+		this.composeWith('@metalab/gulp');
+		this.composeWith('@metalab/webpack');
+		this.composeWith('@metalab/webpack:babel');
+		this.composeWith('@metalab/webpack:sass');
+		this.composeWith('@metalab/webpack:vendor');
 	},
 	prompting: function () {
 
