@@ -3,6 +3,8 @@
 	"version": "0.1.0",
 	"description": "",
 	"keywords": [ "yeoman-generator" ],
+	"repository": "izaakschroeder/generator-web",
+	"license": "CC0-1.0",
 	"dependencies": {
 		"yeoman-generator": "^0.20.1",
 		"@metalab/generator-license": "^0.0.1",
