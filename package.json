@@ -1,15 +1,14 @@
 {
 	"name": "@metalab/generator-web",
 	"version": "0.1.1",
-	"description": "",
+	"description": "Build websites.",
 	"keywords": [ "yeoman-generator" ],
 	"repository": "izaakschroeder/generator-web",
 	"license": "CC0-1.0",
 	"dependencies": {
-		"yeoman-generator": "^0.20.1",
-		"@metalab/generator-license": "^0.0.1",
-		"@metalab/generator-eslint": "^0.1.2",
-		"@metalab/generator-editorconfig": "^0.1.1",
-		"@metalab/generator-gulp": "^0.1.0"
+		"yeoman-util": "^0.5.2",
+		"@metalab/generator-eslint": "^0.3.0",
+		"@metalab/generator-editorconfig": "^0.1.5",
+		"@metalab/generator-webpack": "^0.4.1"
 	}
 }
