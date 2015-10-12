@@ -7,6 +7,7 @@
 	"license": "CC0-1.0",
 	"dependencies": {
 		"yeoman-util": "^0.5.2",
+		"@metalab/generator-contributing": "^0.1.0",
 		"@metalab/generator-eslint": "^0.3.0",
 		"@metalab/generator-editorconfig": "^0.1.5",
 		"@metalab/generator-webpack": "^0.4.2"

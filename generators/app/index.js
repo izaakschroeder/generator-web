@@ -8,7 +8,7 @@ module.exports = util.Base.extend({
 		// this.composeWith('@metalab/license:spdx');
 
 		// contributing
-		// this.composeWith('@metalab/contributing');
+		this.composeWith('@metalab/contributing');
 
 		// editorconfig
 		this.composeWith('@metalab/editorconfig');
@@ -42,15 +42,6 @@ module.exports = util.Base.extend({
 		this.composeWith('@metalab/webpack:source-maps');
 		this.composeWith('@metalab/webpack:stats');
 		this.composeWith('@metalab/webpack:vendor');
-
-		// entrypoints
-		this.composeWith('@metalab/webpack:entry', {
-			express: true,
-			data: {
-				name: 'client',
-				target: 'web'
-			}
-		});
 	},
 
 	writing: {
