@@ -37,7 +37,7 @@ export default class Page extends Component {
       styles = [],
       title = '',
       path = '/',
-			lang = 'en-US'
+      lang = 'en-US'
     } = this.props;
 
     return <html lang={lang}>
@@ -45,11 +45,11 @@ export default class Page extends Component {
         <meta charSet='utf-8'/>
         <meta httpEquiv='X-UA-Compatible' content='IE=edge,chrome=1'/>
         <meta name='viewport'
-					content='width=device-width, initial-scale=1.0, maximum-scale=1'/>
+          content='width=device-width, initial-scale=1.0, maximum-scale=1'/>
         <meta name='apple-mobile-web-app-capable' content='yes'/>
 
         <title>{title}</title>
-				{scripts.filter(script => script.head).map(script)}
+        {scripts.filter(script => script.head).map(script)}
         {styles.map(style)}
       </head>
       <body data-path={path}>
