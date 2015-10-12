@@ -18,7 +18,7 @@ export default function(render) {
         // http://cyh.herokuapp.com/cyh
         // https://github.com/twitter/secureheaders
         .set('Content-Security-Policy', csp(result))
-        .set('Content-Hash', `algorithm=sha256;${torbit(markup)}`)
+        .set('X-UA-Compatible', 'IE=Edge,chrome=1')
         .send(markup);
     }, next);
   };
