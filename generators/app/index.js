@@ -51,13 +51,6 @@ module.exports = util.Base.extend({
 				target: 'web'
 			}
 		});
-		this.composeWith('@metalab/webpack:entry', {
-			express: true,
-			data: {
-				name: 'server',
-				target: 'node'
-			}
-		});
 	},
 
 	writing: {

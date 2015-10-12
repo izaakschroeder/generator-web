@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "start": "node ./build/server/server.js",
+  },
+  "dependencies": {
+    "express": "^5.0.0-alpha2",
+    "compression": "^1.6.0"
+  }
+}

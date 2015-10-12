@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "node ./build/server/server.js",
+    
     "build": "npm run build:client && npm run build:server",
     "dev": "./node_modules/.bin/webpack-udev-server --client ./config/webpack/client.webpack.config.babel.js --server ./config/webpack/server.webpack.config.babel.js",
     "postinstall": "npm run build"
