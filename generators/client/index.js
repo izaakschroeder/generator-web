@@ -1,6 +1,12 @@
 
 var util = require('yeoman-util');
 
+function file(name) {
+	return util.copy('src/client/' + name, name, {
+		overwrite: false
+	});
+}
+
 module.exports = util.Base.extend({
   initializing: function() {
     // entrypoints
@@ -8,8 +14,26 @@ module.exports = util.Base.extend({
       express: true,
       data: {
         name: 'client',
-        target: 'web'
+        target: 'web',
+        partials: [
+          'root',
+          'env',
+          'build-info',
+          'hot',
+          'babel',
+          'postcss',
+          'json',
+          'vendor',
+          'source-maps',
+          'optimize',
+          'compatibility',
+          'stats'
+        ],
       }
     });
+  },
+
+  writing: {
+    state: file('state.js'),
   },
 });
