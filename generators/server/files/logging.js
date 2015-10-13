@@ -10,15 +10,16 @@ export default function() {
     return morgan('dev');
   }
 
-  // TODO: Send logs somewhere useful in production.
+  // TODO: https://github.com/expressjs/response-time/blob/master/index.js
   return ({ ip, environment, agent, timing, url, tag }, { status }, next) => {
     // Wait until before headers are sent in order to capture everything
     // that's gone on with the request. To correlate events you can use the
     // `tag` property.
     headers(res, () => {
+      // TODO: Send data somewhere useful in production.
       const entry = { ip, tag, environment, timing, agent, status, url };
-
     });
+    
     next();
   };
 }

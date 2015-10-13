@@ -10,14 +10,14 @@ import escape from 'htmlescape';
 import Page from './page';
 import Root from '../';
 
-function body({ scripts = [] }) {
+function body(root, { scripts = [] }) {
   // TODO: This is where any flux magic would go.
   return new Promise((resolve) => {
     const state = { };
     resolve({
       status: 200,
       title: 'My Page',
-      markup: renderToString(Root),
+      markup: renderToString(root),
       scripts: [{
         id: 'state',
         type: 'text/json',
@@ -27,7 +27,7 @@ function body({ scripts = [] }) {
   });
 }
 
-function html(props) {
+function html(root, props) {
   const markup = renderToStaticMarkup(<Page {...props}/>);
   return Promise.resolve({
     ...props,
@@ -35,11 +35,11 @@ function html(props) {
   });
 }
 
-export default function render(props) {
+export default function render(root, props) {
   return Promise.all([
-    body(props)
+    body(root, props)
   ]).then(([body]) => {
-    return html({
+    return html(root, {
       ...props,
       ...body
     });

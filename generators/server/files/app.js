@@ -11,6 +11,7 @@ import useragent from './useragent';
 import assets from './assets';
 import cookies from './cookies';
 import render from './render';
+import errors from './error';
 
 // Create the application.
 const app = express();
@@ -28,7 +29,7 @@ app.use(compression());
 app.use(assets())
 app.use(cookies());
 app.use(page());
-app.use(error());
+app.use(errors());
 
 // Fire.
 export default app;

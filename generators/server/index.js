@@ -1,7 +1,7 @@
 var util = require('yeoman-util');
 
 function file(name) {
-	return util.copy(name, name, {
+	return util.copy('src/server/' + name, name, {
 		overwrite: false
 	});
 }
@@ -12,7 +12,19 @@ module.exports = util.Base.extend({
 			express: true,
 			data: {
 				name: 'server',
-				target: 'node'
+				target: 'node',
+				partials: [
+					'./partial/root.webpack.config.js',
+				  './partial/env.webpack.config.js',
+				  './partial/build-info.webpack.config.js',
+				  './partial/hot.webpack.config.js',
+				  './partial/babel.webpack.config.js',
+				  './partial/postcss.webpack.config.js',
+				  './partial/json.webpack.config.js',
+				  './partial/vendor.webpack.config.js',
+				  './partial/source-maps.webpack.config.js',
+				  './partial/optimize.webpack.config.js',
+				]
 			}
 		});
 	},
@@ -21,6 +33,7 @@ module.exports = util.Base.extend({
 		app: file('app.js'),
 
 		// Middleware.
+		assets: file('assets.js'),
 		cookies: file('cookies.js'),
 		environment: file('environment.js'),
 		error: file('error.js'),

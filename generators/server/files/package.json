@@ -3,7 +3,7 @@
     "start": "node ./build/server/server.js",
   },
   "dependencies": {
-    "express": "^5.0.0-alpha2",
+    "express": "^5.0.0-alpha.2",
     "compression": "^1.6.0",
     "useragent": "^2.1.7",
     "morgan": "^1.6.1",

@@ -1,4 +1,7 @@
 
+import { readFileSync } from 'fs';
+import path from 'path';
+
 export function live() {
   let assets = { };
 
@@ -9,7 +12,7 @@ export function live() {
   return function(req, res, next) {
     req.assets = assets;
     next();
-  }
+  };
 }
 
 export function local() {
@@ -19,7 +22,7 @@ export function local() {
 
   return function(req, res, next) {
     req.assets = assets;
-  }
+  };
 }
 
 export default function() {
