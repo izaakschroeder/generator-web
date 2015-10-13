@@ -11,14 +11,13 @@ export default function() {
   }
 
   // TODO: Send logs somewhere useful in production.
-  return (req, res, next) => {
+  return ({ ip, environment, agent, timing, url, tag }, { status }, next) => {
     // Wait until before headers are sent in order to capture everything
-    // that's gone on with the request.
+    // that's gone on with the request. To correlate events you can use the
+    // `tag` property.
     headers(res, () => {
-      // req.ip
-      // req.environment
-      // req.timing
-      // res.status
+      const entry = { ip, tag, environment, timing, agent, status, url };
+
     });
     next();
   };

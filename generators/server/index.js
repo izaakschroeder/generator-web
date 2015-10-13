@@ -17,10 +17,19 @@ module.exports = util.Base.extend({
 		});
 	},
 	writing: {
+		// Core.
 		app: file('app.js'),
-		environment: file('environment.js')
-		render: file('render.js'),
+
+		// Middleware.
+		cookies: file('cookies.js'),
+		environment: file('environment.js'),
+		error: file('error.js'),
+		logging: file('logging.js'),
 		page: file('page.js'),
+		tag: file('tag.js'),
+		useragent: file('useragent.js'),
+
+		// `package.json`.
 		manifest: util.manifest()
 	}
 });

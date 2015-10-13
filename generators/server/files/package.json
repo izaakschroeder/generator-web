@@ -6,6 +6,8 @@
     "express": "^5.0.0-alpha2",
     "compression": "^1.6.0",
     "useragent": "^2.1.7",
-    "morgan": "^1.6.1"
+    "morgan": "^1.6.1",
+    "on-headers": "^1.0.1",
+    "node-uuid": "^1.4.3"
   }
 }

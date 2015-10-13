@@ -6,7 +6,9 @@ import express from 'express';
 import compression from 'compression';
 import logging from './logging';
 import environment from './environment';
+import tag from './tag';
 import useragent from './useragent';
+import assets from './assets';
 import cookies from './cookies';
 import render from './render';
 
@@ -17,9 +19,10 @@ const app = express();
 app.set('trust proxy', true);
 app.set('x-powered-by', false);
 
-// Add assorted middleware.
+// Middleware.
 app.use(logging());
 app.use(environment());
+app.use(tag());
 app.use(useragent());
 app.use(compression());
 app.use(assets())
