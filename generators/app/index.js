@@ -42,6 +42,14 @@ module.exports = util.Base.extend({
     this.composeWith('@metalab/webpack:source-maps');
     this.composeWith('@metalab/webpack:stats');
     this.composeWith('@metalab/webpack:vendor');
+
+    // app layout
+    this.composeWith('../base');
+    this.composeWith('../markup');
+
+    // entrypoints
+    this.composeWith('../client');
+    this.composeWith('../server');
   },
 
   writing: {

@@ -37,6 +37,7 @@ module.exports = util.Base.extend({
 		cookies: file('cookies.js'),
 		environment: file('environment.js'),
 		error: file('error.js'),
+		locale: file('locale.js'),
 		logging: file('logging.js'),
 		page: file('page.js'),
 		tag: file('tag.js'),

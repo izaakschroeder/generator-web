@@ -4,10 +4,6 @@
     "dev": "./node_modules/.bin/webpack-udev-server --client ./config/webpack/client.webpack.config.babel.js --server ./config/webpack/server.webpack.config.babel.js",
     "postinstall": "npm run build"
   },
-  "dependencies": {
-    "react": "^0.14.0",
-    "react-dom": "^0.14.0",
-  },
   "devDependencies": {
     "webpack-udev-server": "^0.2.2"
   },

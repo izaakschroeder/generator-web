@@ -6,7 +6,7 @@
   "repository": "izaakschroeder/generator-web",
   "license": "CC0-1.0",
   "dependencies": {
-    "yeoman-util": "^0.5.2",
+    "yeoman-util": "^0.5.3",
     "@metalab/generator-contributing": "^0.1.0",
     "@metalab/generator-eslint": "^0.3.0",
     "@metalab/generator-editorconfig": "^0.1.5",

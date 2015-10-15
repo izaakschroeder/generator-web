@@ -10,7 +10,7 @@ import escape from 'htmlescape';
 import Page from './page';
 import Root from '../';
 
-function body(root, { scripts = [] }) {
+function body(root, { scripts = [] }) : Promise {
   // TODO: This is where any flux magic would go.
   return new Promise((resolve) => {
     const state = { };
@@ -27,7 +27,7 @@ function body(root, { scripts = [] }) {
   });
 }
 
-function html(root, props) {
+function html(root, props) : Promise {
   const markup = renderToStaticMarkup(<Page {...props}/>);
   return Promise.resolve({
     ...props,
@@ -35,7 +35,7 @@ function html(root, props) {
   });
 }
 
-export default function render(root, props) {
+export default function render(root, props) : Promise {
   return Promise.all([
     body(root, props)
   ]).then(([body]) => {

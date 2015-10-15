@@ -10,6 +10,8 @@ yo @metalab/web
 ```
 
 Generators:
+ * app - Meta-generator that brings everything together.
+ * base - Base react components/containers/etc.
  * client - Client-side entry point.
  * errors - Typical error handling views.
  * markup - Generate markup for your website

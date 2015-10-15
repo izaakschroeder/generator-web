@@ -10,6 +10,7 @@ import tag from './tag';
 import useragent from './useragent';
 import assets from './assets';
 import cookies from './cookies';
+import locale from './locale';
 import render from './render';
 import errors from './error';
 
@@ -28,6 +29,7 @@ app.use(useragent());
 app.use(compression());
 app.use(assets())
 app.use(cookies());
+app.use(locale());
 app.use(page());
 app.use(errors());
 

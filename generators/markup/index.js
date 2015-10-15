@@ -10,5 +10,6 @@ module.exports = util.Base.extend({
   writing: {
     page: file('page.js'),
     render: file('render.js'),
+    manifest: util.manifest(),
   }
 });

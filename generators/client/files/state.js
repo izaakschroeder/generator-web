@@ -9,4 +9,4 @@ function load() {
   }
 }
 
-export default load();
+export default load;

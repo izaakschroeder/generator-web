@@ -3,14 +3,14 @@ import { createElement } from 'react';
 import { render } from 'react-dom';
 
 // Base component.
-import Root from 'index';
+import Root from 'containers/container';
 import state from 'client/state';
 
 // Get the root element.
 const root = document.getElementById('content');
 
 // Build the app component.
-const component = <Root {...state}/>;
+const component = <Root {...state()}/>;
 
 // Mount the root component.
 render(component, root);

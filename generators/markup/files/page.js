@@ -1,7 +1,7 @@
 
-import { createElement, PropTypes, Component } from 'react';
+import { createElement, PropTypes, Component, Element } from 'react';
 
-function script({ path, content, type, id }, i) {
+function script({ path, content, type, id }, i) : Element {
   return path ?
     <script type={type} src={path} key={i}/> :
     <script type={type} key={i} id={id} dangerouslySetInnerHTML={{
@@ -9,7 +9,7 @@ function script({ path, content, type, id }, i) {
     }}/>;
 }
 
-function style({ path, type, content }, i) {
+function style({ path, type, content }, i) : Element {
   return path ?
     <link rel='stylesheet' href={path} key={i}/> :
     <style type={type} key={i} dangerouslySetInnerHTML={{
@@ -20,27 +20,16 @@ function style({ path, type, content }, i) {
 /**
  * Global 'page' object used to render every page.
  */
-export default class Page extends Component {
-
-  static propTypes = {
-    markup: PropTypes.string,
-    scripts: PropTypes.array,
-    styles: PropTypes.array,
-    title: PropTypes.string,
-    path: PropTypes.string
-  }
-
-  render() {
-    const {
-      markup = '',
-      scripts = [],
-      styles = [],
-      title = '',
-      path = '/',
-      lang = 'en-US'
-    } = this.props;
-
-    return <html lang={lang}>
+export default function Page({
+  markup = '' : String,
+  scripts = [] : Array,
+  styles = [] : Array,
+  title = '' : String,
+  path = '/' : String,
+  lang = 'en-US' : String
+}) : Element {
+  return (
+    <html lang={lang}>
       <head>
         <meta charSet='utf-8'/>
         <meta httpEquiv='X-UA-Compatible' content='IE=edge,chrome=1'/>
@@ -56,6 +45,6 @@ export default class Page extends Component {
         <div id='content' dangerouslySetInnerHTML={{ __html: markup }}/>
         {scripts.filter(script => !script.head).map(script)}
       </body>
-    </html>;
-  }
+    </html>
+  );
 }

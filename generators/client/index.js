@@ -35,5 +35,9 @@ module.exports = util.Base.extend({
 
   writing: {
     state: file('state.js'),
+    app: file('app.js'),
+    entry: util.copy('entry/client.entry.js', 'client.entry.js', {
+      overwrite: false
+    }),
   },
 });
