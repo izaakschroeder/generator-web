@@ -2,7 +2,11 @@
 import { readFileSync } from 'fs';
 import path from 'path';
 
-export function live() {
+function json(file : String) : Object {
+  return JSON.parse(readFileSync(file, 'utf8'));
+}
+
+export function live() : Function {
   let assets = { };
 
   process.on('assets', ([url, stats]) => {
@@ -15,16 +19,17 @@ export function live() {
   };
 }
 
-export function local() {
-  const assets = collect(assetUrl, JSON.parse(readFileSync(path.join(
+export function local() : Function {
+  const assets = collect(assetUrl, json(path.join(
     assetPath, 'stats.json'
-  ), 'utf8')));
+  )));
 
   return function(req, res, next) {
     req.assets = assets;
   };
 }
 
-export default function() {
-  return process.env.NODE_ENV !== 'production' ? live() : local();
+export default function() : Function {
+  return process.env.NODE_ENV !== 'production' && process.env.HOT ?
+    live() : local();
 }

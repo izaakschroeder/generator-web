@@ -12,16 +12,18 @@ import assets from './assets';
 import cookies from './cookies';
 import locale from './locale';
 import render from './render';
-import errors from './error';
+import errors from './errors';
 
 // Create the application.
 const app = express();
 
 // Configuration.
+// See: http://expressjs.com/4x/api.html#app.settings.table.
 app.set('trust proxy', true);
 app.set('x-powered-by', false);
 
 // Middleware.
+// See: http://expressjs.com/guide/using-middleware.html.
 app.use(logging());
 app.use(environment());
 app.use(tag());

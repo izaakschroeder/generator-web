@@ -3,7 +3,7 @@ import { createElement } from 'react';
 import { render } from 'react-dom';
 
 // Base component.
-import Root from 'containers/container';
+import Root from 'container/root';
 import state from 'client/state';
 
 // Get the root element.

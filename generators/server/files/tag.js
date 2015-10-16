@@ -1,7 +1,7 @@
 
 import uuid from 'node-uuid';
 
-export default function() {
+export default function() : Function {
   return function(req, res, next) {
     // See: http://stackoverflow.com/a/26386900
     // This is essentially a "transaction id" for being able to correlate this
@@ -10,4 +10,4 @@ export default function() {
     req.tag = uuid.v1();
     next();
   };
-};
+}

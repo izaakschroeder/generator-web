@@ -1,11 +1,11 @@
 
-import render from './render';
+import render from 'markup/render';
 
-export default function() {
+export default function() : Function {
   return function process(req, res, next) {
     render({
       path: req.path,
-      ...req.assets
+      ...req.assets,
     }).then(result => {
       const { markup, status, locale /* scripts, styles */ } = result;
 

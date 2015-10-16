@@ -30,13 +30,15 @@ module.exports = util.Base.extend({
 	},
 	writing: {
 		// Core.
+		eslint: file('.eslintrc'),
 		app: file('app.js'),
 
 		// Middleware.
 		assets: file('assets.js'),
 		cookies: file('cookies.js'),
 		environment: file('environment.js'),
-		error: file('error.js'),
+		errors: file('errors.js'),
+		favicon: file('favicon.js'),
 		locale: file('locale.js'),
 		logging: file('logging.js'),
 		page: file('page.js'),

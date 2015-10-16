@@ -43,6 +43,9 @@ module.exports = util.Base.extend({
     this.composeWith('@metalab/webpack:stats');
     this.composeWith('@metalab/webpack:vendor');
 
+    // testing
+    
+
     // app layout
     this.composeWith('../base');
     this.composeWith('../markup');

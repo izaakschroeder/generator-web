@@ -8,7 +8,6 @@ import escape from 'htmlescape';
 
 // Generic page layout.
 import Page from './page';
-import Root from '../';
 
 function body(root, { scripts = [] }) : Promise {
   // TODO: This is where any flux magic would go.
@@ -21,8 +20,8 @@ function body(root, { scripts = [] }) : Promise {
       scripts: [{
         id: 'state',
         type: 'text/json',
-        content: escape(state)
-      }, ...scripts]
+        content: escape(state),
+      }, ...scripts],
     });
   });
 }
@@ -31,17 +30,17 @@ function html(root, props) : Promise {
   const markup = renderToStaticMarkup(<Page {...props}/>);
   return Promise.resolve({
     ...props,
-    markup: `<!DOCTYPE html>${markup}`
+    markup: `<!DOCTYPE html>${markup}`,
   });
 }
 
 export default function render(root, props) : Promise {
   return Promise.all([
-    body(root, props)
+    body(root, props),
   ]).then(([body]) => {
     return html(root, {
       ...props,
-      ...body
+      ...body,
     });
   });
 }

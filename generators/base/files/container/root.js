@@ -1,3 +1,7 @@
+// React.
+import { createElement, Element } from 'react';
+import { Provider } from 'react-redux';
+
 // Main application container.
 import App from 'container/app';
 

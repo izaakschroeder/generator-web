@@ -1,5 +1,5 @@
 
-import { Component, Element, createElement, PropTypes } from 'react';
+import { Element, createElement } from 'react';
 
 /**
  *  Select which parts of the global state we need.
