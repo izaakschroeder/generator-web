@@ -17,6 +17,10 @@ function style({ path, type, content }, i) : Element {
     }}/>;
 }
 
+function head(entry : Object) : Boolean {
+  return false;
+}
+
 /**
  * Global 'page' object used to render every page.
  * @returns {Element} Generated page.
@@ -39,12 +43,12 @@ export default function Page({
         <meta name='apple-mobile-web-app-capable' content='yes'/>
 
         <title>{title}</title>
-        {scripts.filter(script => script.head).map(script)}
+        {scripts.filter(head).map(script)}
         {styles.map(style)}
       </head>
       <body data-path={path}>
         <div id='content' dangerouslySetInnerHTML={{ __html: markup }}/>
-        {scripts.filter(script => !script.head).map(script)}
+        {scripts.filter(script => !head(script)).map(script)}
       </body>
     </html>
   );

@@ -1,12 +1,21 @@
 
-import render from 'markup/render';
+import { compose } from 'redux';
+import { layout, container } from 'markup/render';
 
-export default function() : Function {
+// Components for rendering the page.
+import Page from 'component/layout/page';
+import App from 'container/root';
+
+const render = compose(layout(Page), container(App));
+
+export default function() {
   return function process(req, res, next) {
-    render({
+    render(Promise.resolve({
+      markup: 'Hello world',
+      status: 200,
       path: req.path,
       ...req.assets,
-    }).then(result => {
+    })).then(result => {
       const { markup, status, locale /* scripts, styles */ } = result;
 
       res
@@ -21,7 +30,7 @@ export default function() : Function {
 
         // Security-related.
         // https://www.owasp.org/index.php/List_of_useful_HTTP_headers
-        .set('Strict-Transport-Security', 'max-age=16070400; includeSubDomains')
+        // .set('Strict-Transport-Security', 'max-age=16070400; includeSubDomains')
         .set('X-Frame-Options', 'deny')
         .set('X-XSS-Protection', '1; mode=block')
         .set('X-Download-Options', 'noopen')
