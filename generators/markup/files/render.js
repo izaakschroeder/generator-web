@@ -27,11 +27,11 @@ store.replaceReducer((state, action) => {
  * @returns {Function} Wrapper function.
  */
 export function container(Container : Component) : Function {
-  return props => props.then(props => {
+  return next => props => {
     const element = <Container {...props}/>;
     const state = { status: 200, title: 'Hello' };
     const { scripts = [ ] } = props;
-    return {
+    next({
       ...props,
       status: state.status,
       title: state.title,
@@ -41,8 +41,8 @@ export function container(Container : Component) : Function {
         type: 'text/json',
         content: escape(state),
       }, ...scripts],
-    };
-  });
+    });
+  };
 }
 
 /**
@@ -51,11 +51,8 @@ export function container(Container : Component) : Function {
  * @returns {Function} Wrapper function.
  */
 export function layout(Layout : Component) : Function {
-  return props => props.then(props => {
-    const element = <Layout {...props}/>;
-    return {
-      ...props,
-      markup: `<!DOCTYPE html>${renderToStaticMarkup(element)}`,
-    };
+  return next => props => next({
+    ...props,
+    markup: `<!DOCTYPE html>${renderToStaticMarkup(<Layout {...props}/>)}`,
   });
 }

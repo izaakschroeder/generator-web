@@ -6,16 +6,11 @@ import { layout, container } from 'markup/render';
 import Page from 'component/layout/page';
 import App from 'container/root';
 
-const render = compose(layout(Page), container(App));
+const render = compose(container(App), layout(Page));
 
 export default function() {
-  return function process(req, res, next) {
-    render(Promise.resolve({
-      markup: 'Hello world',
-      status: 200,
-      path: req.path,
-      ...req.assets,
-    })).then(result => {
+  return function process(req, res) {
+    render(result => {
       const { markup, status, locale /* scripts, styles */ } = result;
 
       res
@@ -39,6 +34,11 @@ export default function() {
 
         // Send actual content.
         .send(markup);
-    }, next);
+    })({
+      markup: 'Hello world',
+      status: 200,
+      path: req.path,
+      ...req.assets,
+    });
   };
 }
