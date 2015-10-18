@@ -5,7 +5,7 @@
     "postinstall": "npm run build"
   },
   "devDependencies": {
-    "webpack-udev-server": "^0.2.2"
+    "webpack-udev-server": "^0.3.0"
   },
   "engines": {
     "node": "^4.1.0",
